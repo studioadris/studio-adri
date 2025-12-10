@@ -200,11 +200,13 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 350px; /* Altura fija */
         }
-        
+
         .presentacion-imagen img {
             width: 100%;
-            height: auto;
+            height: 100%; /* Ocupa toda la altura del contenedor */
+            object-fit: cover; /* Ajusta la imagen sin distorsionar */
             display: block;
             transition: transform 0.5s;
         }
@@ -312,10 +314,21 @@
         
         .mapa-container {
             flex: 1;
-            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
             height: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            align-items: center; /* Centra verticalmente */
+            display: flex; /* Añade esto */
+            background-color: var(--gris-claro); /* Fondo para espacios */
+            justify-content: center; /* Centra horizontalmente */
+        }
+
+        .mapa-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Mantiene proporciones, no recorta */
+            display: block;
         }
         
         .mapa-container iframe {
@@ -456,6 +469,7 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
+                margin-left: 100px; 
             }
             
             nav ul {
@@ -524,7 +538,7 @@
         <div class="container header-container">
             <div class="logo-container">
                 <div class="logo">
-                    <i class="fas fa-spa"></i>
+                    <i class="fas fa-star"></i>
                 </div>
                 <div class="logo-text">
                     <h1>Adri's Studio</h1>
@@ -563,7 +577,7 @@
                     <p>Ofrezco un ambiente acogedor donde puedes disfrutar de un momento de cuidado personal mientras transformamos tus uñas en pequeñas obras de arte.</p>
                 </div>
                 <div class="presentacion-imagen">
-                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Manicura profesional">
+                    <img src="fotos/presentacion.jpg" alt="Manicura profesional">
                 </div>
             </div>
         </div>
@@ -581,29 +595,60 @@
                 <div class="precio-card">
                     <i class="fas fa-hand-sparkles"></i>
                     <h3>Manicura Tradicional</h3>
-                    <div class="precio">$25</div>
+                    <div class="precio">$100</div>
                     <ul>
                         <li>Servicio básico y esencial, aplicando esmalte natural que se seca al aire.</li>
                         <li>Ideal para quienes cambian de color con frecuencia o evitan las lámparas LED.</li>
                         <li>Requiere un cuidado más inmediato, ya que su duración es menor.</li>
                     </ul>
                 </div>
+
+                <div class="precio-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Pedicura Tradicional</h3>
+                    <div class="precio">$100</div>
+                    <ul>
+                        <li>Se utiliza esmalte natural que se seca al aire.</li>
+                        <li>Ideal para quienes cambian de color con frecuencia.</li>
+                    </ul>
+                </div>
+
+                <div class="precio-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Pedicura Semi-Permanente</h3>
+                    <div class="precio">$200</div>
+                    <ul>
+                        <li>Garantiza un brillo intenso y resistencia al agua.</li>
+                        <li>Se mantiene en perfectas condiciones durante 3 a 4 semanas.</li>
+                    </ul>
+                </div>
                 
                 <div class="precio-card">
-                    <i class="fas fa-gem"></i>
+                    <i class="fas fa-hand-sparkles"></i>
                     <h3>Manicura Semi-Permanente</h3>
-                    <div class="precio">$40</div>
+                    <div class="precio">$200</div>
                     <ul>
                         <li>Se prepara la uña natural y se aplica esmalte de gel.</li>
                         <li>Proporciona un brillo intenso de espejo, resiste al agua y golpes.</li>
                         <li>Mantiene un aspecto perfecto durante 2-3 semanas.</li>
                     </ul>
                 </div>
+
+                <div class="precio-card">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Base Rubber</h3>
+                    <div class="precio">Cortas $300/Medias $400/Largas $500</div>
+                    <ul>
+                        <li>Es un refuerzo, se aplica una capa de gel sobre la uña natural para fortalecerla.</li>
+                        <li>La solución perfecta si tus uñas son débiles, se quiebran, pero quieres dejarlas crecer.</li>
+                        <li>Ideal para llevar tu uña natural larga y aplicar sobre ella cualquier color.</li>
+                    </ul>
+                </div>
                 
                 <div class="precio-card">
-                    <i class="fas fa-crown"></i>
+                    <i class="fas fa-hand-sparkles"></i>
                     <h3>Técnica Soft-Gel</h3>
-                    <div class="precio">$55</div>
+                    <div class="precio">$500</div>
                     <ul>
                         <li>Técnica ideal para crear extenciones o reconstruir uñas naturales rotas.</li>
                         <li>El resultado es una uña ligera, flexible y muy natural (muy resistente).</li>
@@ -612,9 +657,9 @@
                 </div>
 
                 <div class="precio-card">
-                    <i class="fas fa-gem"></i>
+                    <i class="fas fa-hand-sparkles"></i>
                     <h3>Poly-Gel</h3>
-                    <div class="precio">$40</div>
+                    <div class="precio">Cortas $500/Medias $600/Largas $700</div>
                     <ul>
                         <li>Es el material de moda para crear extenciones.</li>
                         <li>Se logran uñas largas y de formas perfectas que son muy ligeras y fuertes.</li>
@@ -622,16 +667,6 @@
                     </ul>
                 </div>
 
-                <div class="precio-card">
-                    <i class="fas fa-gem"></i>
-                    <h3>Kapping</h3>
-                    <div class="precio">$40</div>
-                    <ul>
-                        <li>Es un refuerzo, se aplica una capa de gel sobre la uña natural para fortalecerla.</li>
-                        <li>La solución perfecta si tus uñas son débiles, se quiebran, pero quieres dejarlas crecer.</li>
-                        <li>Ideal para llevar tu uña natural larga y aplicar sobre ella cualquier color.</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
@@ -685,7 +720,7 @@
                 </div>
                 
                 <div class="mapa-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d230.5193710240502!2d-80.28926132874716!3d22.41735744003419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scu!4v1765131758839!5m2!1ses-419!2scu" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <img src="fotos/ubicacion.jpg">
                 </div>
             </div>
         </div>
